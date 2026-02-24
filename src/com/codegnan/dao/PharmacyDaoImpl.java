@@ -14,19 +14,19 @@ import com.codegnan.jdbc.crud_operations.Pharmacy;
 
 public class PharmacyDaoImpl implements PharmacyDao {
 
-    // 1️⃣ Insert Medicine
+    
     @Override
     public void save(Pharmacy pharmacy) {
 
-        String sql = "INSERT INTO pharmacy(medicineId, medicineName, category, price) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO pharmacy(name,type,price) VALUES(?,?,?)";
 
         try (Connection con = ConnectionFactory.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setInt(1, pharmacy.getMedicineId());
-            ps.setString(2, pharmacy.getMedicineName());
-            ps.setString(3, pharmacy.getCategory());
-            ps.setDouble(4, pharmacy.getPrice());
+           
+            ps.setString(1, pharmacy.getName());
+            ps.setString(2, pharmacy.getType());
+            ps.setDouble(3, pharmacy.getPrice());
 
             ps.executeUpdate();
 
@@ -37,7 +37,7 @@ public class PharmacyDaoImpl implements PharmacyDao {
         }
     }
 
-    // 2️⃣ Fetch All Medicines
+   
     @Override
     public List<Pharmacy> findAll() {
 
@@ -65,7 +65,7 @@ public class PharmacyDaoImpl implements PharmacyDao {
         return list;
     }
 
-    // 3️⃣ Find By ID
+   
     @Override
     public Pharmacy findById(int id) throws MedicineNotFoundException {
 
@@ -93,7 +93,7 @@ public class PharmacyDaoImpl implements PharmacyDao {
         }
     }
 
-    // 4️⃣ Update Medicine
+ 
     @Override
     public void update(Pharmacy pharmacy) throws MedicineNotFoundException {
 
@@ -120,7 +120,7 @@ public class PharmacyDaoImpl implements PharmacyDao {
         }
     }
 
-    // 5️⃣ Delete Medicine
+   
     @Override
     public void deleteById(int id) throws MedicineNotFoundException {
 
