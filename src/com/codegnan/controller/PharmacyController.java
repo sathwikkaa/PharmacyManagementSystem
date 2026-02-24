@@ -10,8 +10,8 @@ public class PharmacyController {
 
         PharmacyService service = new PharmacyServiceImpl();
 
-        service.addMedicine(new Pharmacy(105, "Paracetamol", "Tablet", 50));
-        service.addMedicine(new Pharmacy(106, "Dolo650", "Tablet", 35));
+        service.addMedicine(new Pharmacy( "tousuq", "Tablet", 50));
+        service.addMedicine(new Pharmacy( "benadryl", "syrup", 35));
 
         System.out.println("Medicines saved successfully!");
     }
